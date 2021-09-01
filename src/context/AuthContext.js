@@ -75,10 +75,10 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function checkIn(id){
+  async function changeIsAttandedStatus(id,status){
     try {
       await db.collection("users").doc(id).update({
-        isAttended:true
+        isAttended: !status
       })
       return "success";
     } catch (err) {
@@ -115,7 +115,7 @@ export function AuthProvider({ children }) {
     if(currentUser){
       const user = await getUser(currentUser?.uid);
       setUserInfo(user?.data());
-      setLoading(false)
+      setLoading(false);
     }
 
   }, [currentUser])
@@ -130,7 +130,7 @@ export function AuthProvider({ children }) {
     updateEmail,
     updatePassword,
     getUser,
-    checkIn,
+    changeIsAttandedStatus,
     getParticipants
   }
 

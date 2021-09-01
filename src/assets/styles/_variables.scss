@@ -14,3 +14,7 @@ $color-text-info: rgb(68, 142, 172);
 $color-text-light: #D0E3C4;
 $color-text-dark: #000000;
 $color-text-gray: #6b68689a;
+
+$mobile: "(max-width: 768px)";
+$tablet: "(min-width: 800px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";

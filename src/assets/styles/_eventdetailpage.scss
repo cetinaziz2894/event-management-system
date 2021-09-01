@@ -1,7 +1,7 @@
 @import '../../assets/styles/variables';
 
 
-@media only screen and (max-width: 768px) {
+@media #{$mobile} {
     .content{
         margin: 10px 0px;
 
@@ -13,5 +13,5 @@
             font-size:16px;
         }
     }
-  }
+}
   

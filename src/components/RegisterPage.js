@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaEnvelope, FaKey, FaQrcode, FaUser } from 'react-icons/fa'
 import '../assets/styles/_login.scss';
 import login_img from '../assets/img/img-01.png';
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function RegisterPage(){
@@ -153,6 +153,9 @@ export default function RegisterPage(){
                 <div className="wrap-input">
                     <button className="login-form-btn" type="submit" disabled={loading ? true : false}>Sign Up</button>
                 </div>
+                <div className="wrap-input text">
+                        Do you have an account? <Link className="link" to="/login"> Log In </Link> now.
+                    </div>
                 <div className="wrap-input alert">
                     {error &&  <ul>{typeof(error) === 'object' ?  error.map((el,index)=><li className="error" key={index}>{el}</li>) : <li>{error}</li>}</ul>}
                 </div>

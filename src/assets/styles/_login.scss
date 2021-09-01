@@ -173,51 +173,54 @@
   }
 }
 
-@media (max-width: 768px) {
-  .wrap-login {
-    padding: 0px;
-    background-color: $color-primary !important;
-    height: auto !important;
-    width: auto !important;
-    margin: 0px 25px;
+@media #{$mobile} {
+  .container-login {
+    background-color: $color-background;
+    .wrap-login {
+      padding: 0px;
+      background-color: $color-primary !important;
+      height: auto !important;
+      width: auto !important;
+      margin: 0px 25px;
 
-  }
+    }
 
-  .wrap-input{
-    width: 80% !important;+
+    .wrap-input{
+      width: 80% !important;+
 
-    span{
-      svg {
-        margin-right: 0px !important;
+      span{
+        svg {
+          margin-right: 0px !important;
+        }
       }
     }
-  }
 
-  .login-form {
-    background-color: none !important;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
+    .login-form {
+      background-color: none !important;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+    }
 
-  .login-pic {
-    display: none !important;
-  }
+    .login-pic {
+      display: none !important;
+    }
 
-  .login-form {
-    width: 100%;
-  }
+    .login-form {
+      width: 100%;
+    }
 
-  .login-form-btn{
-    background-color: $color-background !important;
-    color: $color-text-white !important;
-  }
+    .login-form-btn{
+      background-color: $color-background !important;
+      color: $color-text-white !important;
+    }
 
-  .alert{
+    .alert{
 
-    ul{
-      margin-left: -25px;
-      .error{
-        font-size: 15px !important;
+      ul{
+        margin-left: -25px;
+        .error{
+          font-size: 15px !important;
+        }
       }
     }
   }

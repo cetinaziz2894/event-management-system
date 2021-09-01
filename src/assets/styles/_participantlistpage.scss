@@ -2,12 +2,19 @@
 
 .table-div{
     height: auto;
+
+    .table{
+      width: 100%;
+
+      table{
+        width: 100%;
+      }
+    }
 }
 
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 100%;
   }
   
   td, th {
@@ -15,6 +22,14 @@ table {
     text-align: left;
     padding: 8px;
     text-align: center;
+
+    .check-in-btn{
+      color: $color-text-dark !important;
+    }
+
+    .check-in-btn:hover{
+      color: $color-text-white !important;
+    }
   }
 
   .pagination{
@@ -76,7 +91,7 @@ table {
     }
   }
 
-@media only screen and (max-width: 768px) {
+  @media #{$mobile} {
     .content{
         margin: 10px 0px;
         display: grid;
@@ -95,10 +110,9 @@ table {
 
     .table{
       overflow-x:auto;
-      width: 100%;
 
       td, th {
-        font-size: 20px !important;
+        font-size: 13px !important;
       }
     }
 

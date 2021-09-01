@@ -8,7 +8,7 @@ import Loader from './shared/Loader';
 
 
 export default function ParticipantListPage() {
-    const { getParticipants } = useAuth();
+    const { getParticipants, userInfo, currentUser, changeIsAttandedStatus } = useAuth();
     const [participantsData, setparticipantsData] = useState([]);
     const [participants, setParticipants] = useState([]);
     const [participantsIntable, setParticipantsIntable] = useState([])
@@ -47,6 +47,25 @@ export default function ParticipantListPage() {
         else{
             setPage(page-1);
             setParticipantsIntable(participants.slice((page-2)*5, (page-1)*5));
+        }
+    }
+
+    const changeStatusIsAttandedHandler = async(id,status) => {
+        console.log(id,status)
+        setLoading(false);
+        try {
+            let result = await changeIsAttandedStatus(id,status);
+            if(result === "success"){
+                const users = await getParticipants();
+                setPage(1);
+                setParticipants(users);
+                setparticipantsData(users);
+                setParticipantsIntable(users.slice(0,5));
+                setLoading(true);
+            }
+        } catch {
+            alert("Failed to check in.");
+            setLoading(true);
         }
     }
 
@@ -126,7 +145,12 @@ export default function ParticipantListPage() {
                                             <td>{el?.email}</td>
                                             <td>{el?.hesCode}</td>
                                             <td>{
-                                                el?.isAttended ? <FaThumbsUp color="green" /> :<FaThumbsDown color="red" />}</td>
+                                                el?.isAttended 
+                                                ? <span><FaThumbsUp color="green" /></span> :
+                                                    (el?.email === userInfo?.email && el?.isAttended === false) ?
+                                                    <button className="check-in-btn button" onClick={()=> changeStatusIsAttandedHandler(currentUser?.uid, el?.isAttended)}>Check In</button> : <FaThumbsDown color="red" />
+                                                }
+                                            </td>
                                         </tr>
                                     
                                 ))

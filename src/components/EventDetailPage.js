@@ -6,15 +6,15 @@ import Header from './shared/Header';
 import Loader from './shared/Loader';
 
 export default function EventDetailPage() {
-    const { currentUser, checkIn, getUser, getParticipants } = useAuth();
+    const { currentUser, changeIsAttandedStatus, getParticipants, userInfo } = useAuth();
     const [showButton, setShowButton] = useState(false);
     const [loading, setLoading] = useState(false);
     const [attendedCount, setAttendedCount] = useState(0);
 
-    const checkInHandler = async(id) => {
+    const changeIsAttandedHandler = async(id,status) => {
         setLoading(false);
         try {
-            let result = await checkIn(id);
+            let result = await changeIsAttandedStatus(id,status);
             if(result === "success"){
                 const users = await getParticipants();
                 setAttendedCount(users.filter((el) => el.isAttended === true).length)
@@ -31,14 +31,13 @@ export default function EventDetailPage() {
     useEffect(async() => {
         setLoading(false);
         try {
-            const user = await getUser(currentUser?.uid);
-            setShowButton(!user.data()?.isAttended);
+            setShowButton(!userInfo?.isAttended);
             setLoading(true);
           } catch {
               console.log("Error");            
               setLoading(true);
           }
-      }, [currentUser?.uid, getUser])
+      }, [userInfo])
 
       // eslint-disable-next-line react-hooks/exhaustive-deps
       useEffect(async() => {
@@ -61,7 +60,7 @@ export default function EventDetailPage() {
                         <h2 className="name">Event Detail</h2>
                         <p className="description">Vivamus at lacus sit amet mauris accumsan faucibus. Phasellus congue ultrices tortor ac rutrum. Etiam imperdiet id nibh eget consequat. Maecenas varius tempus nulla, sit amet bibendum mi tempus at. Ut porttitor turpis non nisi porta.</p>
                         {
-                            showButton && <button className="button check-in" onClick={()=> checkInHandler(currentUser?.uid)}>Check In</button>
+                            showButton && <button className="button check-in" onClick={()=> changeIsAttandedHandler(currentUser?.uid, userInfo?.isAttended)}>Check In</button>
                         }
                         <p>{attendedCount} particiapants will attanded this event {!showButton &&  <>with you.</>}</p>
                     </div> : <Loader />
