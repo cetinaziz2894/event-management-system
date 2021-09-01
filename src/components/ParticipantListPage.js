@@ -51,7 +51,7 @@ export default function ParticipantListPage() {
     }
 
     const changeStatusIsAttandedHandler = async(id,status) => {
-        console.log(id,status)
+        //console.log(id,status)
         setLoading(false);
         try {
             let result = await changeIsAttandedStatus(id,status);
