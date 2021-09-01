@@ -1,0 +1,124 @@
+@import '../../assets/styles/variables';
+
+.table-div{
+    height: auto;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .pagination{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+    align-items: center;
+
+    svg{
+      background-color: $color-text-gray;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      margin: 0px 2px;
+    }
+
+    svg:hover{
+      background-color: $color-text-dark;
+    }
+    span{
+      margin: 0px 10px;
+    }
+  }
+
+  .search{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+
+    .search-input{
+      font-size: 15px;
+      line-height: 1.5;
+      width: 300px;
+      height: 50px;
+      border-radius: 10px;
+      padding: 10px;
+      margin-left: 15px;
+      border: 1px solid transparent;
+    }
+
+    .search-button{
+      height: 50px;
+      border-radius: 10px;
+      padding: 10px;
+      transition: 0.4s ease;
+      text-decoration: none;
+      height: 50px;
+      text-align: center; 
+      border: 1px solid #448eac; 
+      color: $color-text-dark; 
+      border-radius: 10px;
+      margin-left: 5px;
+    }
+
+    .search-button:hover{
+      background-color: $color-dark;
+      color: $color-white;
+    }
+  }
+
+@media only screen and (max-width: 768px) {
+    .content{
+        margin: 10px 0px;
+        display: grid;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        h2{
+            margin-top: 10px;
+        }
+
+        .description{
+            font-size:16px;
+        }
+    }
+
+    .table{
+      overflow-x:auto;
+      width: 100%;
+
+      td, th {
+        font-size: 20px !important;
+      }
+    }
+
+    .pagination{
+      margin: 0px 0px;
+      padding:  5px 0px;
+    }
+
+    .table-div{
+      .search-input{
+        width: 160px;
+        height: 40px;
+      }
+
+      .search-button{
+        height: 40px;
+        height: 40px;
+        padding: 5px;
+        font-size: 20px;
+      }
+    }
+  }
+  

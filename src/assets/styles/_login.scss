@@ -1,0 +1,224 @@
+@import './variables';
+
+.container-login{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+
+  .wrap-login{
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 20px;
+    justify-content: center;
+  }
+
+  .login-pic {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    background-color: #C05746;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  
+  .login-pic img {
+    height: auto;
+    width: auto;
+  }
+
+  .login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    background-color: $color-primary;
+    
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  
+  .login-form-title {
+    font-size: 40px;
+    color: $color-text-white;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    display: block;
+    padding: 20px;
+  }
+
+  .wrap-input {
+    margin-bottom: 10px;
+    height: auto;
+    width: fit-content;
+    text-align: center;
+    label{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      svg{
+      color: $color-background !important;
+      }
+
+      
+      input:focus{
+        border : 1px solid #C05746 !important;
+        outline-color : #C05746 !important;
+      }
+    }
+
+    span{
+      display: flex;
+      color: $color-text-danger;
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+    
+    .link{
+      font-size: 20px;
+      cursor: pointer;
+      color: $color-background;
+    }
+  }
+
+  .alert{
+    border-radius: 10px;
+    margin: 10px 5px;
+    background-color: $color-text-danger;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $color-text-white;
+    text-align: start;
+    ul{
+      font-size: medium;
+      font-size: 0px !important;    
+      display: flex;
+      flex-direction: column;
+      li{
+        display: list-item;
+        list-style-position: inside;
+        list-style-type: disc;
+        padding: 0px 10px;
+      }
+      .error{
+        font-size: 20px;
+      }
+    }
+  };
+
+  .text{
+    color: $color-text-white;
+    font-size: 18px;
+  }
+
+  .input {
+    font-size: 15px;
+    line-height: 1.5;
+    display: block;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 15px;
+    border: 1px solid transparent;
+  }
+
+
+  .login-form-btn{
+    height: 50px;
+    background-color: $color-secondary;
+    border-radius: 5px;
+    border: 1px solid;
+    border-color: $color-background !important;
+    width: fit-content;
+    margin: 0px;
+    width: 120px;
+    color: #c05746;
+  }
+  
+  
+  .login-form-btn:hover{
+    background-color: $color-background;
+    color: $color-text-white;
+  }
+}
+
+.logout:hover {
+  background-color: $color-text-danger !important;
+  color: $color-text-white !important;
+
+  .nav-link{
+  color: $color-text-white !important;
+  }
+
+  svg{
+    color: $color-text-white !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap-login {
+    padding: 0px;
+    background-color: $color-primary !important;
+    height: auto !important;
+    width: auto !important;
+    margin: 0px 25px;
+
+  }
+
+  .wrap-input{
+    width: 80% !important;+
+
+    span{
+      svg {
+        margin-right: 0px !important;
+      }
+    }
+  }
+
+  .login-form {
+    background-color: none !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+
+  .login-pic {
+    display: none !important;
+  }
+
+  .login-form {
+    width: 100%;
+  }
+
+  .login-form-btn{
+    background-color: $color-background !important;
+    color: $color-text-white !important;
+  }
+
+  .alert{
+
+    ul{
+      margin-left: -25px;
+      .error{
+        font-size: 15px !important;
+      }
+    }
+  }
+}

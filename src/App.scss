@@ -1,0 +1,258 @@
+@import './assets/styles/_variables.scss';
+
+*
+{
+  font-size: 28px;
+  font-weight: 300;
+  box-sizing: border-box;
+  font-family: 'Metrophobic', Arial, serif; 
+  font-weight: 400;
+  height: 100%;
+}
+
+header
+{
+  text-align: center;
+  background-color: $color-dark !important;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  color: $color-text-white;
+}
+
+footer{
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  font-size: 20px;
+  color: $color-text-white;
+  background-color: $color-dark !important;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1
+{
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.navbar{
+  height: 80px;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+
+
+.hamburger {
+  display: none;
+}
+
+.bar{
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: $color-white;
+  -webkit-transition:all 0.3s ease-in-out;
+  transition: all;
+}
+
+.nav-logo {
+  font-size: 2.1rem;
+  font-weight: 500;
+  color: $color-text-white;
+  margin: 10px 5px;
+}
+
+.nav-menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+}
+
+.nav-item{
+  display: flex;
+  margin: 5px;
+  border: 3px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  svg{
+    margin-left: 10px;
+  }
+}
+
+.nav-item:hover{
+  background-color: #f7f7f7;
+  svg{
+    color: $color-text-dark;
+  }
+
+  .nav-link{
+    color: $color-text-dark;
+  }
+}
+
+.nav-link{
+  padding: 10px 10px 10px 0px;
+  margin: 7px;
+  height: auto;
+  color: $color-text-white;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-image: url("./assets/img/event_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  height: 50%;
+  width: 80%; 
+  background: rgb(0, 0, 0); 
+  background: rgba(0, 0, 0, 0.5); 
+  color: #f1f1f1;
+  padding: 20px; 
+  border-radius: 10px;
+  
+  .name{
+    color: inherit;
+    font-weight: 300;
+    letter-spacing: 1px;
+    font-size: 55px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+p{
+    color: $color-secondary;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+}
+  .button{
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid $color-text-info;
+    color: $color-text-white;
+    transition: 0.4s ease;
+    border-radius: 10px;
+}
+
+.button:hover{
+    background-color: $color-dark;
+    color: $color-white;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar{
+    height: auto;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+
+  .nav-menu {
+      position: fixed;
+      left: -110%;
+      top: 66px;
+      flex-direction: column;
+      background-color:  $color-dark;
+      width: 100%;
+      border-radius: 10px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+      margin-left: 20px;
+      align-items: flex-start;
+      width: calc(100% - 40px);
+      padding: 0px;
+      color: $color-text-white;
+  }
+
+  .nav-menu.active {
+      left: -20px;
+      width: 100%;
+      height: auto;
+      margin-top: 10px;
+  }
+
+  .nav-item {
+      margin: 5px;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      color: $color-dark;
+
+      svg{
+        color: $color-white;
+      }
+  }
+  
+  .nav-link:hover{
+    color: $color-background;
+  }
+
+  .hamburger {
+      display: block;
+      cursor: pointer;
+  }
+
+  .content{
+    height: auto;
+  
+    .name{  
+      font-size: 45px;
+    }
+  }
+}
+
+.check-in{
+  background-color: transparent;
+}
+
+
+@media only screen and (max-width: 448px) {
+  .content{
+    .name{  
+      font-size: 30px;
+    }
+  }
+}

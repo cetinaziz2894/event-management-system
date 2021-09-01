@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Footer() {
     return (
-        <div>
-            Footer
-        </div>
+        <footer>
+            © {(new Date().getFullYear())} Event Management System
+        </footer>
     )
 }

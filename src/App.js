@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import './App.scss';
+import EventDetailPage from './components/EventDetailPage';
+import EventPage from './components/EventPage';
+import LoginPage from './components/LoginPage';
+import ParticipantListPage from './components/ParticipantListPage';
+import PrivateRoute from './components/PrivateRoute';
+import RegisterPage from './components/RegisterPage';
+import { AuthProvider } from './context/AuthContext';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <Route exact  path="/login">
+                <LoginPage />
+              </Route>
+              <Route exact  path="/register">
+                <RegisterPage />
+              </Route>
+              <PrivateRoute  path="/event-detail">
+                <EventDetailPage />
+              </PrivateRoute >
+              <PrivateRoute  path="/participant-list">
+                <ParticipantListPage />
+              </PrivateRoute >
+              <PrivateRoute  exact  path="/">
+                <EventPage />
+              </PrivateRoute >
+            </Switch>
+          </AuthProvider>
+      </Router>
     </div>
-  );
+   );
 }
 
 export default App;
