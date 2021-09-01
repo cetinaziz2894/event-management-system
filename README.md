@@ -1,6 +1,6 @@
 # Getting Started with EMS React App
 
-This is a event management system that you can register, login, list the participants, show the details of event, change the isAttanded status of yours.
+This is a event management system that you can register, login, list the participants, show the details of the event, change the isAttanded status of yours.
 
 ## Available Scripts
 
